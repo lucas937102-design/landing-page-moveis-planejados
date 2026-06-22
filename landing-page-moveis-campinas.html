@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Móveis Planejados em Campinas — Orçamento Grátis</title>
+<meta name="description" content="Receba até 3 orçamentos de móveis planejados em Campinas e região. Grátis, sem compromisso. Cozinhas, armários, closets e home office.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F3EE;
+    --wood: #8B5E3C;
+    --wood-dark: #5C3D1E;
+    --wood-light: #C4956A;
+    --graphite: #1E1E1E;
+    --mid: #4A4A4A;
+    --soft: #9A8E84;
+    --white: #FFFFFF;
+    --accent: #2D6A4F;
+    --accent-light: #D8F3DC;
+    --border: #E8E0D8;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--graphite);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(247, 243, 238, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--wood-dark);
+    letter-spacing: -0.02em;
+  }
+  .nav-cta {
+    background: var(--wood);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--wood-dark); }
+
+  /* ---- HERO ---- */
+  .hero {
+    padding: 120px 24px 80px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--graphite);
+    margin-bottom: 20px;
+  }
+  h1 span { color: var(--wood); }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--mid);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .trust-row {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--mid);
+    font-weight: 500;
+  }
+  .trust-icon {
+    width: 20px; height: 20px;
+    background: var(--accent-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* ---- FORM CARD ---- */
+  .form-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px 36px;
+    box-shadow: 0 4px 40px rgba(139, 94, 60, 0.12);
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .form-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--wood), var(--wood-light));
+  }
+
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--graphite);
+    margin-bottom: 6px;
+  }
+  .form-subtitle {
+    font-size: 0.88rem;
+    color: var(--soft);
+    margin-bottom: 28px;
+  }
+
+  .form-group {
+    margin-bottom: 18px;
+  }
+  label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--mid);
+    margin-bottom: 6px;
+    letter-spacing: 0.03em;
+  }
+  input, select {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--graphite);
+    background: var(--cream);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+  input:focus, select:focus {
+    outline: none;
+    border-color: var(--wood);
+    box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.1);
+    background: var(--white);
+  }
+  input::placeholder { color: var(--soft); }
+
+  .select-wrapper { position: relative; }
+  .select-wrapper::after {
+    content: '▾';
+    position: absolute;
+    right: 16px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--wood);
+    pointer-events: none;
+    font-size: 0.8rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--wood), var(--wood-dark));
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+    margin-top: 8px;
+    letter-spacing: 0.01em;
+  }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(92, 61, 30, 0.25);
+  }
+  .btn-submit:active { transform: translateY(0); }
+
+  .form-note {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--soft);
+    margin-top: 12px;
+  }
+  .form-note strong { color: var(--mid); }
+
+  /* ---- SUCCESS STATE ---- */
+  .success-state {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .success-icon {
+    width: 72px; height: 72px;
+    background: var(--accent-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto 20px;
+  }
+  .success-state h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--graphite);
+    margin-bottom: 10px;
+  }
+  .success-state p {
+    color: var(--mid);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25D366;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    transition: background 0.2s;
+  }
+  .whatsapp-btn:hover { background: #1ebe5d; }
+
+  /* ---- HOW IT WORKS ---- */
+  .section { padding: 80px 24px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--wood);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: var(--graphite);
+    margin-bottom: 48px;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    position: relative;
+  }
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 32px; left: calc(16.6% + 16px); right: calc(16.6% + 16px);
+    height: 2px;
+    background: linear-gradient(90deg, var(--wood-light), var(--wood));
+    opacity: 0.3;
+  }
+  .step { text-align: center; padding: 32px 20px; position: relative; }
+  .step-num {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, var(--wood), var(--wood-light));
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: white;
+    margin: 0 auto 20px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(139, 94, 60, 0.3);
+  }
+  .step h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--graphite);
+    margin-bottom: 8px;
+  }
+  .step p {
+    font-size: 0.88rem;
+    color: var(--mid);
+    line-height: 1.6;
+  }
+
+  /* ---- SOCIAL PROOF ---- */
+  .proof-section { background: var(--white); }
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 56px;
+  }
+  .stat {
+    background: var(--white);
+    padding: 36px 24px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--wood);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .stat-label {
+    font-size: 0.82rem;
+    color: var(--mid);
+    line-height: 1.4;
+  }
+
+  .neighborhoods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+  }
+  .neighborhood-tag {
+    background: var(--cream);
+    border: 1.5px solid var(--border);
+    color: var(--mid);
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 500;
+  }
+
+  /* ---- ENVIRONMENTS ---- */
+  .env-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .env-card {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 24px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    cursor: default;
+  }
+  .env-card:hover {
+    border-color: var(--wood-light);
+    box-shadow: 0 4px 20px rgba(139, 94, 60, 0.08);
+  }
+  .env-emoji { font-size: 2rem; margin-bottom: 12px; display: block; }
+  .env-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--graphite); margin-bottom: 4px; }
+  .env-card p { font-size: 0.82rem; color: var(--soft); line-height: 1.5; }
+
+  /* ---- FAQ ---- */
+  .faq-list { max-width: 720px; }
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 24px 0;
+  }
+  .faq-item:first-child { border-top: 1px solid var(--border); }
+  .faq-q {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--graphite);
+    gap: 16px;
+  }
+  .faq-toggle {
+    font-size: 1.2rem;
+    color: var(--wood);
+    font-weight: 300;
+    flex-shrink: 0;
+    transition: transform 0.2s;
+  }
+  .faq-a {
+    font-size: 0.88rem;
+    color: var(--mid);
+    line-height: 1.7;
+    margin-top: 12px;
+    display: none;
+  }
+  .faq-item.open .faq-a { display: block; }
+  .faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+  /* ---- FINAL CTA ---- */
+  .final-cta {
+    background: linear-gradient(135deg, var(--wood-dark) 0%, var(--wood) 100%);
+    color: white;
+    text-align: center;
+    padding: 80px 24px;
+  }
+  .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 900;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+  .final-cta p {
+    font-size: 1rem;
+    opacity: 0.8;
+    max-width: 480px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+  }
+  .final-cta .btn-white {
+    display: inline-block;
+    background: white;
+    color: var(--wood-dark);
+    padding: 16px 40px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .final-cta .btn-white:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  }
+
+  /* ---- FOOTER ---- */
+  footer {
+    background: var(--graphite);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 24px;
+    font-size: 0.78rem;
+    line-height: 1.7;
+  }
+  footer a { color: rgba(255,255,255,0.6); }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 768px) {
+    .hero {
+      grid-template-columns: 1fr;
+      padding: 100px 20px 60px;
+      gap: 40px;
+    }
+    .steps, .stats-row { grid-template-columns: 1fr; }
+    .steps::before { display: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .env-grid { grid-template-columns: 1fr 1fr; }
+    nav { padding: 14px 20px; }
+    .nav-logo { font-size: 0.95rem; }
+  }
+  @media (max-width: 480px) {
+    .env-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Planejados Campinas</div>
+  <a href="#form" class="nav-cta">Orçamento grátis →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Campinas e região · Grátis · Sem compromisso</div>
+    <h1>Transforme sua casa com <span>móveis sob medida</span></h1>
+    <p class="hero-sub">Compare orçamentos das melhores marcenarias de Campinas — Cambuí, Taquaral, Alphaville, Barão Geraldo e região. Preencha uma vez, receba até 3 propostas.</p>
+    <div class="trust-row">
+      <div class="trust-item">
+        <div class="trust-icon">✓</div>
+        100% gratuito
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">✓</div>
+        Sem visita indesejada
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">✓</div>
+        Resposta em até 2h
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-card" id="form">
+    <div class="form-main">
+      <div class="form-title">Solicite seu orçamento</div>
+      <div class="form-subtitle">Preencha em menos de 1 minuto. É grátis.</div>
+
+      <form id="leadForm" onsubmit="submitForm(event)">
+        <div class="form-group">
+          <label for="nome">Seu nome *</label>
+          <input type="text" id="nome" placeholder="Ex: Ana Souza" required>
+        </div>
+
+        <div class="form-group">
+          <label for="whatsapp">WhatsApp *</label>
+          <input type="tel" id="whatsapp" placeholder="(19) 9 9999-9999" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="bairro">Bairro *</label>
+            <div class="select-wrapper">
+              <select id="bairro" required>
+                <option value="" disabled selected>Selecione</option>
+                <option>Cambuí</option>
+                <option>Taquaral</option>
+                <option>Alphaville Campinas</option>
+                <option>Barão Geraldo</option>
+                <option>Nova Campinas</option>
+                <option>Jardim Chapadão</option>
+                <option>Swift / Mansões</option>
+                <option>Vinhedo</option>
+                <option>Valinhos</option>
+                <option>Outro bairro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="prazo">Prazo *</label>
+            <div class="select-wrapper">
+              <select id="prazo" required>
+                <option value="" disabled selected>Selecione</option>
+                <option>Urgente (1 mês)</option>
+                <option>1 a 3 meses</option>
+                <option>3 a 6 meses</option>
+                <option>Ainda pesquisando</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ambiente">Qual ambiente você quer mobiliar? *</label>
+          <div class="select-wrapper">
+            <select id="ambiente" required>
+              <option value="" disabled selected>Selecione o principal</option>
+              <option>Cozinha planejada</option>
+              <option>Quarto / guarda-roupa</option>
+              <option>Closet</option>
+              <option>Home office</option>
+              <option>Sala de estar</option>
+              <option>Ambiente gourmet / churrasqueira</option>
+              <option>Casa completa (vários ambientes)</option>
+              <option>Escritório / comercial</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          → Quero meus orçamentos grátis
+        </button>
+      </form>
+
+      <p class="form-note">
+        🔒 <strong>Seus dados são seguros.</strong> Você receberá contato apenas de empresas parceiras em Campinas. Cancelamento imediato se desejar.
+      </p>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="success-state" id="successState">
+      <div class="success-icon">✅</div>
+      <h3>Solicitação recebida!</h3>
+      <p>Ótimo, <strong id="successName"></strong>! Empresas parceiras em Campinas entrarão em contato pelo seu WhatsApp em breve — geralmente em menos de 2 horas.</p>
+      <a href="https://wa.me/5519999999999" class="whatsapp-btn" target="_blank">
+        💬 Falar agora no WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Como funciona</div>
+    <div class="section-title">Simples assim</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>Preencha o formulário</h3>
+        <p>Informe seu nome, WhatsApp, bairro e o ambiente que deseja mobiliar. Menos de 60 segundos.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Receba os contatos</h3>
+        <p>Em até 2 horas, marcenarias e lojas de planejados da sua região entrarão em contato pelo WhatsApp.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>Compare e escolha</h3>
+        <p>Avalie as propostas, estilos e preços. Escolha o fornecedor ideal para o seu projeto — sem pressão.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="section proof-section">
+  <div class="container">
+    <div class="section-label">Campinas e região</div>
+    <div class="section-title">Cobrimos os principais bairros</div>
+
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">orçamentos por solicitação (máximo)</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2h</div>
+        <div class="stat-label">tempo médio de resposta dos parceiros</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">0</div>
+        <div class="stat-label">custo para você — 100% gratuito</div>
+      </div>
+    </div>
+
+    <p style="font-size:0.9rem; color:var(--mid); margin-bottom:16px; font-weight:600;">Atendemos moradores de:</p>
+    <div class="neighborhoods">
+      <span class="neighborhood-tag">Cambuí</span>
+      <span class="neighborhood-tag">Taquaral</span>
+      <span class="neighborhood-tag">Alphaville Campinas</span>
+      <span class="neighborhood-tag">Barão Geraldo</span>
+      <span class="neighborhood-tag">Nova Campinas</span>
+      <span class="neighborhood-tag">Jardim Chapadão</span>
+      <span class="neighborhood-tag">Mansões Santo Antônio</span>
+      <span class="neighborhood-tag">Vinhedo</span>
+      <span class="neighborhood-tag">Valinhos</span>
+      <span class="neighborhood-tag">Indaiatuba</span>
+      <span class="neighborhood-tag">Hortolândia</span>
+      <span class="neighborhood-tag">Sumaré</span>
+    </div>
+  </div>
+</section>
+
+<!-- ENVIRONMENTS -->
+<section class="section">
+  <div class="container">
+    <div class="section-label">Ambientes</div>
+    <div class="section-title">O que você pode mobiliar</div>
+    <div class="env-grid">
+      <div class="env-card">
+        <span class="env-emoji">🍳</span>
+        <h3>Cozinha Planejada</h3>
+        <p>Do projeto ao armário sobre a geladeira — aproveitamento máximo do espaço.</p>
+      </div>
+      <div class="env-card">
+        <span class="env-emoji">🛏️</span>
+        <h3>Quarto / Guarda-Roupa</h3>
+        <p>Soluções inteligentes para quartos de casal, solteiro ou infantil.</p>
+      </div>
+      <div class="env-card">
+        <span class="env-emoji">👗</span>
+        <h3>Closet</h3>
+        <p>Closets planejados com iluminação, nichos e organização personalizada.</p>
+      </div>
+      <div class="env-card">
+        <span class="env-emoji">💻</span>
+        <h3>Home Office</h3>
+        <p>Bancada, estantes e gaveteiros planejados para trabalhar com conforto.</p>
+      </div>
+      <div class="env-card">
+        <span class="env-emoji">🛋️</span>
+        <h3>Sala de Estar</h3>
+        <p>Estantes, rack, painel para TV e painéis decorativos integrados.</p>
+      </div>
+      <div class="env-card">
+        <span class="env-emoji">🏠</span>
+        <h3>Casa Completa</h3>
+        <p>Projeto unificado para todos os ambientes com identidade visual coesa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="background:var(--white)">
+  <div class="container">
+    <div class="section-label">Dúvidas frequentes</div>
+    <div class="section-title">Respostas diretas</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          É realmente gratuito? Tem alguma taxa escondida?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">Sim, 100% gratuito. A plataforma é paga pelas empresas parceiras, não por você. Não há nenhum custo ou compromisso para quem solicita orçamento.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Vão me ligar toda hora após o cadastro?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">Não. Você receberá contato de no máximo 3 empresas. Normalmente é por WhatsApp primeiro, então você decide se quer receber a ligação ou visita. A qualquer momento você pode pedir para não ser mais contatado.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          As empresas parceiras são confiáveis?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">Trabalhamos apenas com marcenarias e lojas de móveis planejados com CNPJ ativo, avaliações positivas e experiência comprovada na região de Campinas. Todas passam por verificação antes de entrar na rede.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Preciso saber exatamente o que quero para pedir orçamento?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">Não. Mesmo que você ainda esteja pesquisando ideias, os especialistas podem te ajudar com referências, projetos inspiracionais e orientações. Basta indicar o ambiente de interesse.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Em quanto tempo recebo os contatos?
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">Em dias úteis, o contato costuma chegar em até 2 horas após o preenchimento. Em fins de semana, pode ser no próximo dia útil pela manhã.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Pronto para transformar sua casa?</h2>
+  <p>Solicite orçamentos grátis agora e descubra quanto custa realizar seu projeto em Campinas.</p>
+  <a href="#form" class="btn-white">Quero meu orçamento grátis →</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Planejados Campinas · Conectando famílias com as melhores marcenarias da região</p>
+  <p style="margin-top:6px">
+    Ao solicitar orçamento, você concorda em ser contatado por empresas parceiras de móveis planejados.
+    Seus dados não são vendidos a terceiros fora da rede de parceiros.
+  </p>
+</footer>
+
+<script>
+  // Form submission
+  function submitForm(e) {
+    e.preventDefault();
+    const nome = document.getElementById('nome').value;
+    document.getElementById('successName').textContent = nome;
+    document.getElementById('leadForm').style.display = 'none';
+    document.querySelector('.form-title').style.display = 'none';
+    document.querySelector('.form-subtitle').style.display = 'none';
+    document.getElementById('successState').style.display = 'block';
+
+    // In production: replace this with actual Google Sheets / Zapier webhook
+    console.log('Lead:', {
+      nome,
+      whatsapp: document.getElementById('whatsapp').value,
+      bairro: document.getElementById('bairro').value,
+      prazo: document.getElementById('prazo').value,
+      ambiente: document.getElementById('ambiente').value,
+      timestamp: new Date().toISOString()
+    });
+  }
+
+  // FAQ toggle
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // WhatsApp number formatter
+  document.getElementById('whatsapp').addEventListener('input', function(e) {
+    let v = e.target.value.replace(/\D/g, '');
+    if (v.length <= 11) {
+      v = v.replace(/^(\d{2})(\d)/, '($1) $2');
+      v = v.replace(/(\d{4,5})(\d{4})$/, '$1-$2');
+    }
+    e.target.value = v;
+  });
+</script>
+
+</body>
+</html>
